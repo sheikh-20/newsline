@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4808B5DB2C4504F9007337A3 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808B5DA2C4504F9007337A3 /* NotificationView.swift */; };
+		4808B5DD2C450508007337A3 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4808B5DC2C450508007337A3 /* NotificationViewModel.swift */; };
 		482C52642C4255EF001ED9A9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C52632C4255EF001ED9A9 /* HomeView.swift */; };
 		482C52682C4256F9001ED9A9 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C52672C4256F9001ED9A9 /* DiscoverView.swift */; };
 		482C526B2C42570E001ED9A9 /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482C526A2C42570E001ED9A9 /* BookmarkView.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4808B5DA2C4504F9007337A3 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		4808B5DC2C450508007337A3 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		482C52632C4255EF001ED9A9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		482C52672C4256F9001ED9A9 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		482C526A2C42570E001ED9A9 /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
@@ -95,9 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4808B5D92C4504C8007337A3 /* notification */ = {
+			isa = PBXGroup;
+			children = (
+				4808B5DA2C4504F9007337A3 /* NotificationView.swift */,
+				4808B5DC2C450508007337A3 /* NotificationViewModel.swift */,
+			);
+			path = notification;
+			sourceTree = "<group>";
+		};
 		482C525F2C42552F001ED9A9 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4808B5D92C4504C8007337A3 /* notification */,
 				482C526F2C42574A001ED9A9 /* onboard */,
 				482C526C2C425714001ED9A9 /* profile */,
 				482C52692C425700001ED9A9 /* bookmark */,
@@ -399,11 +413,13 @@
 				482E0C362C43FB2C005F3E39 /* HomeApp.swift in Sources */,
 				482C52772C4269DF001ED9A9 /* BookmarkViewModel.swift in Sources */,
 				482C52682C4256F9001ED9A9 /* DiscoverView.swift in Sources */,
+				4808B5DD2C450508007337A3 /* NotificationViewModel.swift in Sources */,
 				482C526E2C42571E001ED9A9 /* ProfileView.swift in Sources */,
 				482C52732C4269C5001ED9A9 /* OnboardViewModel.swift in Sources */,
 				482C52792C4269EE001ED9A9 /* DiscoverViewModel.swift in Sources */,
 				482C52752C4269D5001ED9A9 /* ProfileViewModel.swift in Sources */,
 				482C526B2C42570E001ED9A9 /* BookmarkView.swift in Sources */,
+				4808B5DB2C4504F9007337A3 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

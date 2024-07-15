@@ -18,12 +18,15 @@ struct HomeView: View {
                     
                        ToolbarItem(placement: .navigationBarLeading) {
                            HStack {
-                               Image(systemName: "person.crop.circle")
-                                                          .resizable()
-                                                          .aspectRatio(contentMode: .fit)
-                                                          .frame(width: 36, height: 36)
-                                                          .clipShape(Circle())
-                                                      
+                               
+                               NavigationLink(destination: { NotificationView() }) {
+                                   Image(systemName: "person.crop.circle")
+                                                              .resizable()
+                                                              .aspectRatio(contentMode: .fit)
+                                                              .frame(width: 36, height: 36)
+                                                              .clipShape(Circle())
+                                                   
+                               }
                                
                                VStack(alignment: .leading) {
                                    Text("Welcome back 👋")
@@ -44,6 +47,10 @@ struct HomeView: View {
                        }
                    }
                }
+    }
+    
+    func openNotificationView() {
+        
     }
 }
 
