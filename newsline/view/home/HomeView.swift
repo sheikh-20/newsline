@@ -9,11 +9,41 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        
-        VStack {
-            Text("Hello, newsline!")
-        }
-        .padding()
+        NavigationView {
+                   VStack {
+                       Text("Hello, World!")
+                       // Your main content goes here
+                   }
+                   .toolbar {
+                    
+                       ToolbarItem(placement: .navigationBarLeading) {
+                           HStack {
+                               Image(systemName: "person.crop.circle")
+                                                          .resizable()
+                                                          .aspectRatio(contentMode: .fit)
+                                                          .frame(width: 36, height: 36)
+                                                          .clipShape(Circle())
+                                                      
+                               
+                               VStack(alignment: .leading) {
+                                   Text("Welcome back 👋")
+                                       .font(.caption)
+                                                          
+                                   Text("Andrew Ainsley")
+                                       .font(.subheadline)
+                                                          
+                               }
+                           }
+                       }
+                       ToolbarItem(placement: .navigationBarTrailing) {
+                           Button(action: {
+                               // Action for trailing button
+                           }) {
+                               Image(systemName: "bell")
+                           }
+                       }
+                   }
+               }
     }
 }
 
