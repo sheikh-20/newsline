@@ -28,6 +28,7 @@
 		4846AD3E2C40F68A002F8495 /* newslineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846AD3D2C40F68A002F8495 /* newslineTests.swift */; };
 		4846AD482C40F68A002F8495 /* newslineUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846AD472C40F68A002F8495 /* newslineUITests.swift */; };
 		4846AD4A2C40F68A002F8495 /* newslineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846AD492C40F68A002F8495 /* newslineUITestsLaunchTests.swift */; };
+		48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		4846AD432C40F68A002F8495 /* newslineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = newslineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4846AD472C40F68A002F8495 /* newslineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newslineUITests.swift; sourceTree = "<group>"; };
 		4846AD492C40F68A002F8495 /* newslineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newslineUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		482C52602C425543001ED9A9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				48B8EF3D2C4647BD00B07F67 /* model */,
 				482C52622C42557E001ED9A9 /* api */,
 				482C52902C427585001ED9A9 /* repository */,
 			);
@@ -212,6 +215,7 @@
 		482C52942C4276B0001ED9A9 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -272,6 +276,13 @@
 				4846AD492C40F68A002F8495 /* newslineUITestsLaunchTests.swift */,
 			);
 			path = newslineUITests;
+			sourceTree = "<group>";
+		};
+		48B8EF3D2C4647BD00B07F67 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +425,7 @@
 				482C52772C4269DF001ED9A9 /* BookmarkViewModel.swift in Sources */,
 				482C52682C4256F9001ED9A9 /* DiscoverView.swift in Sources */,
 				4808B5DD2C450508007337A3 /* NotificationViewModel.swift in Sources */,
+				48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */,
 				482C526E2C42571E001ED9A9 /* ProfileView.swift in Sources */,
 				482C52732C4269C5001ED9A9 /* OnboardViewModel.swift in Sources */,
 				482C52792C4269EE001ED9A9 /* DiscoverViewModel.swift in Sources */,
