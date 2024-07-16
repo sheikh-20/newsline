@@ -10,25 +10,27 @@ import SwiftUI
 
 struct HomeApp: View {
     var body: some View {
-        TabView {
-            
-            HomeView().tabItem {
-                Image(systemName: "house.fill")
-                Text("Home")
+        
+        NavigationView {
+            TabView {
+                HomeView().tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+                DiscoverView().tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Discover")
+                }
+                ProfileView().tabItem {
+                    Image(systemName: "bookmark.fill")
+                    Text("Bookmark")
+                }
+                BookmarkView().tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Account")
+                }
+        
             }
-            DiscoverView().tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Discover")
-            }
-            ProfileView().tabItem {
-                Image(systemName: "bookmark.fill")
-                Text("Bookmark")
-            }
-            BookmarkView().tabItem {
-                Image(systemName: "person.fill")
-                Text("Account")
-            }
-    
         }
     }
 }
