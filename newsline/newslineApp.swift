@@ -11,7 +11,7 @@ import SwiftUI
 struct newslineApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeApp()
+            SplashView()
         }
     }
 }

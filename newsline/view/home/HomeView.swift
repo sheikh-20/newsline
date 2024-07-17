@@ -54,7 +54,8 @@ struct HomeView: View {
                            }
                        }
                    }
-        }.onAppear {
+        }
+        .onAppear {
             homeViewModel.fetchImages()
         }
     }
