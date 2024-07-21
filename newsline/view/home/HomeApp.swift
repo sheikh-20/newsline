@@ -21,11 +21,11 @@ struct HomeApp: View {
                     Image(systemName: "magnifyingglass")
                     Text("Discover")
                 }
-                ProfileView().tabItem {
+                BookmarkView().tabItem {
                     Image(systemName: "bookmark.fill")
                     Text("Bookmark")
                 }
-                BookmarkView().tabItem {
+                ProfileView().tabItem {
                     Image(systemName: "person.fill")
                     Text("Account")
                 }
