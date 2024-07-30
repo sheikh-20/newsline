@@ -32,6 +32,7 @@
 		487339F62C47C06E00250B86 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487339F52C47C06E00250B86 /* SplashView.swift */; };
 		487339F92C47C47000250B86 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487339F82C47C47000250B86 /* Utility.swift */; };
 		48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */; };
+		48EBFAE22C5940CE004767CB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBFAE12C5940CE004767CB /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		487339F52C47C06E00250B86 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		487339F82C47C47000250B86 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		48EBFAE12C5940CE004767CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			children = (
 				482C52702C425764001ED9A9 /* OnboardView.swift */,
 				482C52722C4269C5001ED9A9 /* OnboardViewModel.swift */,
+				48EBFAE12C5940CE004767CB /* LoginView.swift */,
 			);
 			path = onboard;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */,
 				482C526E2C42571E001ED9A9 /* ProfileView.swift in Sources */,
 				482C52732C4269C5001ED9A9 /* OnboardViewModel.swift in Sources */,
+				48EBFAE22C5940CE004767CB /* LoginView.swift in Sources */,
 				482C52792C4269EE001ED9A9 /* DiscoverViewModel.swift in Sources */,
 				482C52752C4269D5001ED9A9 /* ProfileViewModel.swift in Sources */,
 				482C526B2C42570E001ED9A9 /* BookmarkView.swift in Sources */,
