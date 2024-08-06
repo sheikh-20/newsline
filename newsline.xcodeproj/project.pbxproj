@@ -43,6 +43,8 @@
 		4899C7142C5BC9FD00F9143B /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4899C7132C5BC9FD00F9143B /* CreateProfileView.swift */; };
 		4899C7162C5BCA0B00F9143B /* CompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4899C7152C5BCA0B00F9143B /* CompleteView.swift */; };
 		48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */; };
+		48CC9C202C612ED200995F05 /* PublishersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC9C1F2C612ED200995F05 /* PublishersModel.swift */; };
+		48CC9C222C612F3A00995F05 /* PublishersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC9C212C612F3A00995F05 /* PublishersRepository.swift */; };
 		48EBFAE22C5940CE004767CB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EBFAE12C5940CE004767CB /* LoginView.swift */; };
 		48EE75D22C5CF9A0003DE9FA /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE75D12C5CF9A0003DE9FA /* Country.swift */; };
 		48EE75D42C5CFA0A003DE9FA /* CountryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE75D32C5CFA0A003DE9FA /* CountryRepository.swift */; };
@@ -105,6 +107,8 @@
 		4899C7132C5BC9FD00F9143B /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		4899C7152C5BCA0B00F9143B /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
 		48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		48CC9C1F2C612ED200995F05 /* PublishersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersModel.swift; sourceTree = "<group>"; };
+		48CC9C212C612F3A00995F05 /* PublishersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersRepository.swift; sourceTree = "<group>"; };
 		48EBFAE12C5940CE004767CB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		48EE75D12C5CF9A0003DE9FA /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		48EE75D32C5CFA0A003DE9FA /* CountryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRepository.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				482C52912C427598001ED9A9 /* NewslineRepository.swift */,
 				48EE75D32C5CFA0A003DE9FA /* CountryRepository.swift */,
 				4824288C2C5E2BC400BBCA07 /* NewsCategoryRepository.swift */,
+				48CC9C212C612F3A00995F05 /* PublishersRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 				48B8EF3E2C4647CE00B07F67 /* ImageModel.swift */,
 				48EE75D12C5CF9A0003DE9FA /* Country.swift */,
 				4824288A2C5E2B6200BBCA07 /* NewsCategory.swift */,
+				48CC9C1F2C612ED200995F05 /* PublishersModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 				482E0C362C43FB2C005F3E39 /* HomeApp.swift in Sources */,
 				4899C7142C5BC9FD00F9143B /* CreateProfileView.swift in Sources */,
 				482C52772C4269DF001ED9A9 /* BookmarkViewModel.swift in Sources */,
+				48CC9C222C612F3A00995F05 /* PublishersRepository.swift in Sources */,
 				482C52682C4256F9001ED9A9 /* DiscoverView.swift in Sources */,
 				4808B5DD2C450508007337A3 /* NotificationViewModel.swift in Sources */,
 				48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */,
@@ -536,6 +543,7 @@
 				48EBFAE22C5940CE004767CB /* LoginView.swift in Sources */,
 				4824288D2C5E2BC400BBCA07 /* NewsCategoryRepository.swift in Sources */,
 				4899C7052C5BC73F00F9143B /* SignupWithPasswordView.swift in Sources */,
+				48CC9C202C612ED200995F05 /* PublishersModel.swift in Sources */,
 				482C52792C4269EE001ED9A9 /* DiscoverViewModel.swift in Sources */,
 				4852CB1D2C5A26590085A644 /* LoginWithPasswordView.swift in Sources */,
 				4824288B2C5E2B6200BBCA07 /* NewsCategory.swift in Sources */,
