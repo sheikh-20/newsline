@@ -9,6 +9,9 @@ import Foundation
 import SwiftUI
 
 struct LoginView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack(alignment: .center, spacing: 16.0) {
             
@@ -61,18 +64,41 @@ struct LoginView: View {
             Button(
                 action: { },
                 label: {
-                    Text("Sign in with password").fontWeight(.semibold)
+                    NavigationLink(destination: LoginWithPasswordView()){
+                        Text("Sign in with password").fontWeight(.semibold)
+                    }
                 })
             .buttonStyle(ElevatedButtonStyle())
             .frame(maxWidth: .infinity)
             .padding(.vertical)
             
-            Text("Don't have an account? Sign up")
-                .font(.body)
-                .fontWeight(.light)
-                .padding()
+            HStack {
+                Text("Don't have an account? ")
+                    .font(.body)
+                    .fontWeight(.light)
+                    
+                NavigationLink(destination: SignupWithPasswordView()) {
+                    Text("Sign up")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor(primaryColor)
+                }
+                
+            }.frame(maxWidth: .infinity, alignment: .center)
+           
             
         }.padding(.horizontal)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(action: {
+                                presentationMode.wrappedValue.dismiss()
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
     }
 }
 

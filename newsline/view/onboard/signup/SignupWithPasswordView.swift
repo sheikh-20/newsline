@@ -12,77 +12,93 @@ struct SignupWithPasswordView: View {
     
     @State private var text: String = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
-        NavigationView {
-            VStack(alignment: .leading) {
-                Text("Create Account 👩‍💻")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                Text("Join our community and personalize your news experience")
-                    .font(.body)
+        VStack(alignment: .leading) {
+            Text("Create Account 👩‍💻")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding()
+            
+            Text("Join our community and personalize your news experience")
+                .font(.body)
+                .padding(.horizontal)
+            
+            Text("Email")
+                .font(.body)
+                .fontWeight(.semibold)
+                .padding([.top, .leading, .trailing])
+            
+            TextField("Email", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
-                
-                Text("Email")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                    .padding([.top, .leading, .trailing])
-                
-                TextField("Email", text: $text)
+            
+            Text("Password")
+                .font(.body)
+                .fontWeight(.semibold)
+                .padding([.top, .leading, .trailing])
+            
+            TextField("Password", text: $text)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
+                    .padding(.horizontal)
+            
+            
+            HStack {
                 
-                Text("Password")
+                Text("I agree to Newsline Terms & Policy")
                     .font(.body)
                     .fontWeight(.semibold)
-                    .padding([.top, .leading, .trailing])
+                    .frame(maxWidth: .infinity, alignment: .center)
                 
-                TextField("Password", text: $text)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                
-                
-                HStack {
-                    
-                    Text("I agree to Newsline Terms & Policy")
-                        .font(.body)
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    
-                }.padding([.top, .leading, .trailing])
-                
-                Divider().padding(.vertical)
-                
-                Text("Already have an account? Sign in")
+            }.padding([.top, .leading, .trailing])
+            
+            Divider().padding(.vertical)
+            
+            
+            HStack {
+                Text("Already have an account? ")
                     .font(.body)
                     .fontWeight(.light)
-                    .frame(maxWidth: .infinity, alignment: .center)
-            
-                
-                Spacer()
-                
-                Divider().padding(.vertical)
-                
-                HStack {
-                   
-                    Button(
-                        action: { },
-                        label: { Text("Sign up").fontWeight(.semibold) })
-                        .buttonStyle(ElevatedButtonStyle())
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     
-                }.padding(.horizontal)
+                NavigationLink(destination: LoginWithPasswordView()) {
+                    Text("Sign in")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor(primaryColor)
+                }
                 
-            }.toolbar {
+            }.frame(maxWidth: .infinity, alignment: .center)
+           
+            
+            Spacer()
+            
+            Divider().padding(.vertical)
+            
+            HStack {
+               
+                Button(
+                    action: { },
+                    label: {
+                        NavigationLink(destination: UserCountryView()) {
+                            Text("Sign up").fontWeight(.semibold)
+                        }
+                    })
+                    .buttonStyle(ElevatedButtonStyle())
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        // Action for trailing button
-                    }) {
-                        Image(systemName: "chevron.left")
-                    }
+            }.padding(.horizontal)
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
                 }
             }
         }

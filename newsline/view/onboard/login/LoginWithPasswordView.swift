@@ -12,86 +12,98 @@ struct LoginWithPasswordView: View {
     
     @State private var text: String = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
-        NavigationView {
-            VStack(alignment: .leading) {
-                Text("Welcome back 👋")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding()
-                
-                Text("Please enter your email & password to sign in.")
-                    .font(.body)
-                    .padding(.horizontal)
-                
-                Text("Email")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                    .padding([.top, .leading, .trailing])
-                
-                TextField("Email", text: $text)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                
-                Text("Password")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                    .padding([.top, .leading, .trailing])
-                
-                TextField("Password", text: $text)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                
-                
-                HStack {
-                    
-                    Text("Remember me")
-                        .font(.body)
-                        .fontWeight(.semibold)
+        VStack(alignment: .leading) {
+            Text("Welcome back 👋")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding()
             
-                    
-                    Spacer()
-                    
-                    Text("Forgot password?")
-                        .font(.body)
-                        .fontWeight(.semibold)
+            Text("Please enter your email & password to sign in.")
+                .font(.body)
+                .padding(.horizontal)
             
-                    
-                }.padding([.top, .leading, .trailing])
+            Text("Email")
+                .font(.body)
+                .fontWeight(.semibold)
+                .padding([.top, .leading, .trailing])
+            
+            TextField("Email", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
+            Text("Password")
+                .font(.body)
+                .fontWeight(.semibold)
+                .padding([.top, .leading, .trailing])
+            
+            TextField("Password", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding(.horizontal)
+            
+            
+            HStack {
                 
-                Divider().padding(.vertical)
-                
-                Text("Don't have an account? Sign up")
+                Text("Remember me")
                     .font(.body)
-                    .fontWeight(.light)
-                    .frame(maxWidth: .infinity, alignment: .center)
-            
+                    .fontWeight(.semibold)
+                
                 
                 Spacer()
                 
-                Divider().padding(.vertical)
+                Text("Forgot password?")
+                    .font(.body)
+                    .fontWeight(.semibold)
                 
-                HStack {
-                   
-                    Button(
-                        action: { },
-                        label: { Text("Sign In").fontWeight(.semibold) })
-                        .buttonStyle(ElevatedButtonStyle())
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                
+            }.padding([.top, .leading, .trailing])
+            
+            Divider().padding(.vertical)
+            
+            HStack {
+                Text("Don't have an account? ")
+                    .font(.body)
+                    .fontWeight(.light)
                     
-                }.padding(.horizontal)
+                Text("Sign up")
+                    .font(.body)
+                    .fontWeight(.semibold)
+                    .foregroundColor(primaryColor)
+                    
                 
-            }.toolbar {
+            }.frame(maxWidth: .infinity, alignment: .center)
+           
+            Spacer()
+            
+            Divider().padding(.vertical)
+            
+            HStack {
                 
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        // Action for trailing button
-                    }) {
-                        Image(systemName: "chevron.left")
-                    }
-                }
-            }
+                Button(
+                    action: { },
+                    label: {
+                        NavigationLink(destination: CompleteView()) {
+                            Text("Sign In").fontWeight(.semibold)
+                        }
+                    })
+                .buttonStyle(ElevatedButtonStyle())
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                
+            }.padding(.horizontal)
+                .navigationBarBackButtonHidden(true)
+                .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(action: {
+                                    presentationMode.wrappedValue.dismiss()
+                                }) {
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.black)
+                                }
+                            }
+                        }
         }
     }
 }
