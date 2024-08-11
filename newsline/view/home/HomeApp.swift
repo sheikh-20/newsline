@@ -29,9 +29,8 @@ struct HomeApp: View {
                     Image(systemName: "person.fill")
                     Text("Account")
                 }
-        
             }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

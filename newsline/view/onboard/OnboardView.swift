@@ -9,31 +9,36 @@ import SwiftUI
 
 struct OnboardView: View {
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            Spacer()
-            
-            Text("Stay Informed, Anytime, Anywhere")
-                .font(.title).padding(.horizontal)
-            
-            Text("Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content.")
-                .font(.body).padding(.top).padding(.horizontal)
-            
-            
-            Divider().padding(.vertical)
-            
-            HStack(spacing: 16) {
-                Button(action: { }, label: { Text("Skip").fontWeight(.semibold) })
-                    .buttonStyle(OutlinedButtonStyle())
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack(alignment: .leading) {
                 
-                Button(action: { }, label: { Text("Continue").fontWeight(.semibold) })
-                    .buttonStyle(ElevatedButtonStyle())
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                Spacer()
                 
-            }.padding(.horizontal)
+                Text("Stay Informed, Anytime, Anywhere")
+                    .font(.title).padding(.horizontal)
+                
+                Text("Welcome to our news app, your go-to source for breaking news, exclusive stories and personalized content.")
+                    .font(.body).padding(.top).padding(.horizontal)
+                
+                
+                Divider().padding(.vertical)
+                
+                HStack(spacing: 16) {
+                    Button(action: { }, label: { Text("Skip").fontWeight(.semibold) })
+                        .buttonStyle(OutlinedButtonStyle())
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    
+                    Button(action: {  },
+                           label: { NavigationLink(destination: LoginView()) {
+                        Text("Continue").fontWeight(.semibold)
+                    } })
+                        .buttonStyle(ElevatedButtonStyle())
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    
+                }.padding(.horizontal)
+            }
+            .padding(.vertical)
         }
-        .padding(.vertical)
     }
 }
 

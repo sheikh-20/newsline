@@ -10,135 +10,141 @@ import SwiftUI
 
 struct EnableNotificationView: View {
 
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         
-        NavigationView {
-            VStack(alignment: .leading, spacing: 20.0) {
-                Text("Enable notifications 🔔")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal)
-                    .padding(.top)
-                
-                Text("Stay updated, never miss a story. Receive notifications for breaking news and personalized updates.")
-                    .font(.body)
-                    .padding(.horizontal)
-                
-                ScrollView {
-                    VStack {
-                        
-                        HStack(alignment: .center) {
-                            Text("Breaking news notifications")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        HStack(alignment: .center) {
-                            Text("News recommendations")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("Top story notifications")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("Trending stories")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("Daily or weekly digest")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("Stories from these I follow")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        
-                        HStack(alignment: .center) {
-                            Text("Someone is following me")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        HStack(alignment: .center) {
-                            Text("Someone commented on my story")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                        HStack(alignment: .center) {
-                            Text("Someone replied to my comment")
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                            
-                            Spacer()
-                            Toggle("", isOn: .constant(true)).labelsHidden()
-                        }.frame(maxWidth: .infinity).padding(.top)
-                        
-                    }
-                } .scrollIndicators(.hidden).padding(.horizontal)
-                
-                Divider()
-                    .padding([.leading, .trailing])
-                
-                HStack {
-                   
-                    Button(
-                        action: { },
-                        label: { Text("Continue").fontWeight(.semibold) })
-                        .buttonStyle(ElevatedButtonStyle())
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 20.0) {
+            Text("Enable notifications 🔔")
+                .font(.title)
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+                .padding(.top)
+            
+            Text("Stay updated, never miss a story. Receive notifications for breaking news and personalized updates.")
+                .font(.body)
+                .padding(.horizontal)
+            
+            ScrollView {
+                VStack {
                     
-                }.padding(.horizontal)
+                    HStack(alignment: .center) {
+                        Text("Breaking news notifications")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    HStack(alignment: .center) {
+                        Text("News recommendations")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    
+                    HStack(alignment: .center) {
+                        Text("Top story notifications")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    
+                    HStack(alignment: .center) {
+                        Text("Trending stories")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    
+                    
+                    HStack(alignment: .center) {
+                        Text("Daily or weekly digest")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    
+                    
+                    HStack(alignment: .center) {
+                        Text("Stories from these I follow")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    
+                    HStack(alignment: .center) {
+                        Text("Someone is following me")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    HStack(alignment: .center) {
+                        Text("Someone commented on my story")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                    HStack(alignment: .center) {
+                        Text("Someone replied to my comment")
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                        
+                        Spacer()
+                        Toggle("", isOn: .constant(true)).labelsHidden()
+                    }.frame(maxWidth: .infinity).padding(.top)
+                    
+                }
+            } .scrollIndicators(.hidden).padding(.horizontal)
+            
+            Divider()
+                .padding([.leading, .trailing])
+            
+            HStack {
+               
+                Button(
+                    action: { },
+                    label: {
+                        NavigationLink(destination: CreateProfileView()) {
+                            Text("Continue").fontWeight(.semibold)
+                        }
+                    })
+                    .buttonStyle(ElevatedButtonStyle())
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 
-            }.toolbar {
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        // Action for trailing button
-                    }) {
-                        Image(systemName: "chevron.left")
-                    }
+            }.padding(.horizontal)
+            
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
                 }
             }
         }
