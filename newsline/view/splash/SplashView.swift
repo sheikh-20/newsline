@@ -14,7 +14,7 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if (self.isActive) {
-                HomeApp()
+                OnboardView()
             } else {
                 Rectangle().foregroundColor(Color.black).ignoresSafeArea()
                 
