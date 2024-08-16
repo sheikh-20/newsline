@@ -27,14 +27,24 @@ struct ProfileView: View {
                            Button(action: {
                                // Action for leading button
                            }) {
-                               Image(systemName: "line.horizontal.3")
+                               Image("Newsline")
+                                   .resizable()
+                                   .scaledToFill()
+                                   .frame(width: 30, height: 30)
                            }
                        }
                        ToolbarItem(placement: .navigationBarTrailing) {
                            Button(action: {
                                // Action for trailing button
                            }) {
-                               Image(systemName: "square.and.arrow.up")
+                               if let shareImage = UIImage(named: "share") {
+                                   Image(uiImage: shareImage)
+                                       .resizable() // Make it resizable if needed
+                                       .scaledToFit() //
+                                       .imageScale(.large)
+                                       .symbolVariant(.circle)
+                                       .frame(width: 20, height: 20)
+                               }
                            }
                        }
                        
@@ -42,7 +52,14 @@ struct ProfileView: View {
                            Button(action: {
                                // Action for trailing button
                            }) {
-                               Image(systemName: "gear")
+                               if let shareImage = UIImage(named: "settings") {
+                                   Image(uiImage: shareImage)
+                                       .resizable() // Make it resizable if needed
+                                       .scaledToFit() //
+                                       .imageScale(.large)
+                                       .symbolVariant(.circle)
+                                       .frame(width: 20, height: 20)
+                               }
                            }
                        }
                    }

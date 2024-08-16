@@ -22,43 +22,48 @@ struct HomeView: View {
                 Spacer()
                 
                    }
-                   .toolbar {
-                    
-                       ToolbarItem(placement: .navigationBarLeading) {
-                           HStack {
-                               
-                               NavigationLink(destination: { NotificationView() }) {
-                                   Image(systemName: "person.crop.circle")
-                                                              .resizable()
-                                                              .aspectRatio(contentMode: .fit)
-                                                              .frame(width: 36, height: 36)
-                                                              .clipShape(Circle())
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+             
+                ToolbarItem(placement: .navigationBarLeading) {
+                    HStack {
+                        
+                        Image(systemName: "person.crop.circle")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 36, height: 36)
+                            .clipShape(Circle())
+                                              
+                        VStack(alignment: .leading) {
+                            Text("Welcome back 👋")
+                                .font(.caption)
                                                    
-                               }
-                               
-                               VStack(alignment: .leading) {
-                                   Text("Welcome back 👋")
-                                       .font(.caption)
-                                                          
-                                   Text("Andrew Ainsley")
-                                       .font(.subheadline)
-                                                          
-                               }
-                           }
-                       }
-                       ToolbarItem(placement: .navigationBarTrailing) {
-                           Button(action: {
-                               // Action for trailing button
-                           }) {
-                               Image(systemName: "bell")
-                           }
-                       }
-                   }
-        }
-        .onAppear {
-            homeViewModel.fetchImages()
+                            Text("Andrew Ainsley")
+                                .font(.subheadline)
+                                                   
+                        }
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        // Action for trailing button
+                    }) {
+                        if let shareImage = UIImage(named: "notifications") {
+                            NavigationLink(destination: { NotificationView() }) {
+                                Image(uiImage: shareImage)
+                                    .resizable() // Make it resizable if needed
+                                    .scaledToFit() //
+                                    .imageScale(.large)
+                                    .symbolVariant(.circle)
+                                    .frame(width: 20, height: 20)
+                            }
+                        }
+                    }
+                }
+            }.onAppear { homeViewModel.fetchImages() }
         }
     }
+    
     
     func trendingSection() -> some View {
         
@@ -104,7 +109,6 @@ struct HomeView: View {
                             @unknown default: EmptyView()
                             }
                         }
-                        
                     }
                 }
                 .padding(.horizontal)
@@ -156,7 +160,6 @@ struct HomeView: View {
                             @unknown default: EmptyView()
                             }
                         }
-                        
                     }
                 }
                 .padding(.horizontal)
@@ -167,7 +170,6 @@ struct HomeView: View {
     func openNotificationView() {
         
     }
-
 }
 
 struct HomeView_Previews: PreviewProvider {
