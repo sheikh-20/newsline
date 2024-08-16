@@ -11,26 +11,24 @@ import SwiftUI
 struct HomeApp: View {
     var body: some View {
         
-        NavigationView {
-            TabView {
-                HomeView().tabItem {
-                    Image(systemName: "house.fill")
-                    Text("Home")
-                }
-                DiscoverView().tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Discover")
-                }
-                BookmarkView().tabItem {
-                    Image(systemName: "bookmark.fill")
-                    Text("Bookmark")
-                }
-                ProfileView().tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Account")
-                }
+        TabView {
+            HomeView().tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
-        }.navigationBarBackButtonHidden(true)
+            DiscoverView().tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Discover")
+            }
+            BookmarkView().tabItem {
+                Image(systemName: "bookmark.fill")
+                Text("Bookmark")
+            }
+            ProfileView().tabItem {
+                Image(systemName: "person.fill")
+                Text("Account")
+            }
+        }.navigationBarBackButtonHidden()
     }
 }
 
