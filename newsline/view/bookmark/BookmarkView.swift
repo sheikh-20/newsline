@@ -27,14 +27,24 @@ struct BookmarkView: View {
                            Button(action: {
                                // Action for leading button
                            }) {
-                               Image(systemName: "line.horizontal.3")
+                               Image("Newsline")
+                                   .resizable()
+                                   .scaledToFill()
+                                   .frame(width: 30, height: 30)
                            }
                        }
                        ToolbarItem(placement: .navigationBarTrailing) {
                            Button(action: {
                                // Action for trailing button
                            }) {
-                               Image(systemName: "magnifyingglass")
+                               if let shareImage = UIImage(named: "search") {
+                                   Image(uiImage: shareImage)
+                                       .resizable() // Make it resizable if needed
+                                       .scaledToFit() //
+                                       .imageScale(.large)
+                                       .symbolVariant(.circle)
+                                       .frame(width: 20, height: 20)
+                               }
                            }
                        }
                    }
