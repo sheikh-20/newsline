@@ -32,6 +32,8 @@
 		4846AD4A2C40F68A002F8495 /* newslineUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4846AD492C40F68A002F8495 /* newslineUITestsLaunchTests.swift */; };
 		4852CB1D2C5A26590085A644 /* LoginWithPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4852CB1C2C5A26590085A644 /* LoginWithPasswordView.swift */; };
 		4854EB1E2C4D68E700748EF3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4854EB1D2C4D68E700748EF3 /* Colors.swift */; };
+		4870A9F12C721ED50011A4E6 /* OnboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870A9F02C721ED50011A4E6 /* OnboardModel.swift */; };
+		4870A9F32C721F540011A4E6 /* OnboardRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870A9F22C721F540011A4E6 /* OnboardRepository.swift */; };
 		487339F62C47C06E00250B86 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487339F52C47C06E00250B86 /* SplashView.swift */; };
 		487339F92C47C47000250B86 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487339F82C47C47000250B86 /* Utility.swift */; };
 		4899C7052C5BC73F00F9143B /* SignupWithPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4899C7042C5BC73F00F9143B /* SignupWithPasswordView.swift */; };
@@ -96,6 +98,8 @@
 		4846AD492C40F68A002F8495 /* newslineUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newslineUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4852CB1C2C5A26590085A644 /* LoginWithPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithPasswordView.swift; sourceTree = "<group>"; };
 		4854EB1D2C4D68E700748EF3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		4870A9F02C721ED50011A4E6 /* OnboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardModel.swift; sourceTree = "<group>"; };
+		4870A9F22C721F540011A4E6 /* OnboardRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardRepository.swift; sourceTree = "<group>"; };
 		487339F52C47C06E00250B86 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		487339F82C47C47000250B86 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		4899C7042C5BC73F00F9143B /* SignupWithPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupWithPasswordView.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 				48EE75D32C5CFA0A003DE9FA /* CountryRepository.swift */,
 				4824288C2C5E2BC400BBCA07 /* NewsCategoryRepository.swift */,
 				48CC9C212C612F3A00995F05 /* PublishersRepository.swift */,
+				4870A9F22C721F540011A4E6 /* OnboardRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 				48EE75D12C5CF9A0003DE9FA /* Country.swift */,
 				4824288A2C5E2B6200BBCA07 /* NewsCategory.swift */,
 				48CC9C1F2C612ED200995F05 /* PublishersModel.swift */,
+				4870A9F02C721ED50011A4E6 /* OnboardModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				482C52922C427598001ED9A9 /* NewslineRepository.swift in Sources */,
+				4870A9F32C721F540011A4E6 /* OnboardRepository.swift in Sources */,
 				4854EB1E2C4D68E700748EF3 /* Colors.swift in Sources */,
 				482C52712C425764001ED9A9 /* OnboardView.swift in Sources */,
 				4899C70A2C5BC91600F9143B /* ResetPasswordView.swift in Sources */,
@@ -536,6 +543,7 @@
 				482C52772C4269DF001ED9A9 /* BookmarkViewModel.swift in Sources */,
 				48CC9C222C612F3A00995F05 /* PublishersRepository.swift in Sources */,
 				482C52682C4256F9001ED9A9 /* DiscoverView.swift in Sources */,
+				4870A9F12C721ED50011A4E6 /* OnboardModel.swift in Sources */,
 				4808B5DD2C450508007337A3 /* NotificationViewModel.swift in Sources */,
 				48B8EF3F2C4647CE00B07F67 /* ImageModel.swift in Sources */,
 				482C526E2C42571E001ED9A9 /* ProfileView.swift in Sources */,
