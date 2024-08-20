@@ -6,3 +6,15 @@
 //
 
 import Foundation
+import Combine
+
+class OnboardViewModel: ObservableObject {
+    
+    func loginWithPassword(email: String, password: String) {
+        NSLog("Login: \(email) \(password)")
+    }
+    
+    func signupWithPassword(email: String, password: String) {
+        NSLog("Login: \(email) \(password)")
+    }
+}
