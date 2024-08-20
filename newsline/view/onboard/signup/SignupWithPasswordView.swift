@@ -10,7 +10,13 @@ import SwiftUI
 
 struct SignupWithPasswordView: View {
     
-    @State private var text: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var isPasswordVisible: Bool = false
+    
+    @StateObject private var viewmodel = OnboardViewModel()
+    
+    @State private var isChecked: Bool = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -31,28 +37,70 @@ struct SignupWithPasswordView: View {
                 .fontWeight(.semibold)
                 .padding([.top, .leading, .trailing])
             
-            TextField("Email", text: $text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            HStack {
+                Image(systemName: "envelope.fill")  // Email icon from SF Symbols
+                        .foregroundColor(.gray)
+                            
+                TextField("Email", text: $email)
+                    .keyboardType(.emailAddress)
+                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                    .disableAutocorrection(true)
                     .padding(.horizontal)
+                }
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray, lineWidth: 1))
+                .padding(.horizontal)
             
             Text("Password")
                 .font(.body)
-                .fontWeight(.semibold)
                 .padding([.top, .leading, .trailing])
             
-            TextField("Password", text: $text)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-            
-            
             HStack {
+                Image(systemName: "lock.fill")  // Email icon from SF Symbols
+                        .foregroundColor(.gray)
+                            
+                if isPasswordVisible {
+                    TextField("Password", text: $password)
+                        .disableAutocorrection(true)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal)
+                } else {
+                    SecureField("Password", text: $password)
+                        .disableAutocorrection(true)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal)
+                    }
+            
+                Button(action: { isPasswordVisible.toggle() }) {
+                    Image(systemName: isPasswordVisible ? "eye.fill" : "eye.slash.fill" )
+                        .foregroundColor(.gray)
+         
+                    }
+                }
+            .padding()
+                .overlay(RoundedRectangle(cornerRadius: 8)
+                .stroke(Color.gray, lineWidth: 1))
+                .padding(.horizontal)
+            
+            
+            HStack(alignment: .center, spacing: 8) {
+                
+                Button(action: {
+                               isChecked.toggle()
+                           }) {
+                               Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                                   .foregroundColor(isChecked ? .blue : .gray)
+                           }
+                           
                 
                 Text("I agree to Newsline Terms & Policy")
                     .font(.body)
                     .fontWeight(.semibold)
-                    .frame(maxWidth: .infinity, alignment: .center)
                 
-            }.padding([.top, .leading, .trailing])
+            }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .padding([.top, .leading, .trailing])
             
             Divider().padding(.vertical)
             
