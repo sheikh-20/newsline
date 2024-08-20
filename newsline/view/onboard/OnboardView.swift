@@ -63,17 +63,26 @@ struct OnboardView: View {
                             .frame(maxWidth: .infinity)
                     }
                     
-                    Button(action: {  },
-                           label: { NavigationLink(destination: LoginView()) {
-                        Text("Continue").fontWeight(.semibold)
-                    } })
-                        .buttonStyle(ElevatedButtonStyle())
-                        .frame(maxWidth: .infinity)
-                    
+                    Button(action: { nextPage() },
+                                               label: {
+                                            if currentPage == (onboardContent.count - 1)  {
+                                                NavigationLink(destination: LoginView()) {
+                                                    Text("Continue").fontWeight(.semibold)
+                                                }
+                                            } else { Text("Continue").fontWeight(.semibold) }
+                                        })
+                                            .buttonStyle(ElevatedButtonStyle())
+                                            .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal)
             }
             .padding(.vertical)
+        }
+    }
+    
+    func nextPage() {
+        if (currentPage < (onboardContent.count - 1)) {
+            currentPage = currentPage + 1
         }
     }
 }
