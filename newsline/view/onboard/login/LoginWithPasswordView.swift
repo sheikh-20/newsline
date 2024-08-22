@@ -48,8 +48,7 @@ struct LoginWithPasswordView: View {
                     .padding(.horizontal)
                 }
                 .padding()
-                .overlay(RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.gray, lineWidth: 1))
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.gray, lineWidth: 1))
                 .padding(.horizontal)
             
             Text("Password")
@@ -63,12 +62,10 @@ struct LoginWithPasswordView: View {
                 if isPasswordVisible {
                     TextField("Password", text: $password)
                         .disableAutocorrection(true)
-                        .fontWeight(.semibold)
                         .padding(.horizontal)
                 } else {
                     SecureField("Password", text: $password)
                         .disableAutocorrection(true)
-                        .fontWeight(.semibold)
                         .padding(.horizontal)
                     }
             
@@ -79,7 +76,7 @@ struct LoginWithPasswordView: View {
                     }
                 }
             .padding()
-                .overlay(RoundedRectangle(cornerRadius: 8)
+                .overlay(RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.gray, lineWidth: 1))
                 .padding(.horizontal)
             
@@ -102,10 +99,11 @@ struct LoginWithPasswordView: View {
                 
                 Spacer()
                 
-                Text("Forgot password?")
-                    .font(.body)
-                    .fontWeight(.semibold)
-                
+                NavigationLink(destination: ResetPasswordView()) {
+                    Text("Forgot password?")
+                        .font(.body)
+                        .fontWeight(.semibold)
+                }
                 
             }.padding([.top, .leading, .trailing])
             
