@@ -16,7 +16,6 @@ struct SplashView: View {
             if (self.isActive) {
                 OnboardView()
             } else {
-                Rectangle().foregroundColor(Color.black).ignoresSafeArea()
                 
                 VStack(alignment: .center) {
                     
@@ -28,7 +27,6 @@ struct SplashView: View {
                     Text("Newsline")
                         .font(.title)
                         .fontWeight(.semibold)
-                        .foregroundStyle(Color.white)
                         .padding()
                 }
                 
