@@ -90,12 +90,23 @@ struct OnboardView: View {
 
 
 struct OutlinedButtonStyle: ButtonStyle {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    var outlinedButtonColor: Color {
+        colorScheme == .dark ? darkThemeOutlinedButtonColor : lightThemeOutlinedButtonColor
+    }
+    
+    var textColor: Color {
+        colorScheme == .dark ? Color.white : primaryColor
+    }
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
             .background(outlinedButtonColor)
-            .foregroundColor(primaryColor)
+            .foregroundColor(textColor)
             .cornerRadius(50)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
           
