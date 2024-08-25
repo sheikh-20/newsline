@@ -14,11 +14,14 @@ struct LoginView: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 16.0) {
+        
+            Spacer()
             
             Image("Newsline")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100)
+            
             
             Text("Newsline")
                 .font(.title)
@@ -28,38 +31,45 @@ struct LoginView: View {
             Text("Welcome! Let's dive in into your account!")
                 .font(.body)
                 .padding(.horizontal)
+                .padding(.bottom)
             
-            Button(
-                action: { },
-                label: {
-                    Text("Continue with Google").fontWeight(.semibold)
-                })
-            .buttonStyle(OutlinedButtonStyle())
-            .frame(maxWidth: .infinity)
+            Spacer()
             
-            Button(
-                action: { },
-                label: {
-                    Text("Continue with Apple").fontWeight(.semibold)
-                })
-            .buttonStyle(OutlinedButtonStyle())
-            .frame(maxWidth: .infinity)
+            VStack(spacing: 16.0) {
+                Button(
+                    action: { },
+                    label: {
+                        Text("Continue with Google").font(.system(size: 16.0, weight: .semibold))
+                    })
+                .buttonStyle(SocialLoginButtonStyle())
+                .frame(maxWidth: .infinity)
+                
+                Button(
+                    action: { },
+                    label: {
+                        Text("Continue with Apple").font(.system(size: 16.0, weight: .semibold))
+                    })
+                .buttonStyle(SocialLoginButtonStyle())
+                .frame(maxWidth: .infinity)
+                
+                Button(
+                    action: { },
+                    label: {
+                        Text("Continue with Facebook").font(.system(size: 16.0, weight: .semibold))
+                    })
+                .buttonStyle(SocialLoginButtonStyle())
+                .frame(maxWidth: .infinity)
+                
+                Button(
+                    action: { },
+                    label: {
+                        Text("Continue with Twitter").font(.system(size: 16.0, weight: .semibold))
+                    })
+                .buttonStyle(SocialLoginButtonStyle())
+                .frame(maxWidth: .infinity)
+            }
             
-            Button(
-                action: { },
-                label: {
-                    Text("Continue with Facebook").fontWeight(.semibold)
-                })
-            .buttonStyle(OutlinedButtonStyle())
-            .frame(maxWidth: .infinity)
-            
-            Button(
-                action: { },
-                label: {
-                    Text("Continue with Twitter").fontWeight(.semibold)
-                })
-            .buttonStyle(OutlinedButtonStyle())
-            .frame(maxWidth: .infinity)
+            Spacer()
             
             Button(
                 action: { },
@@ -74,33 +84,46 @@ struct LoginView: View {
             
             HStack {
                 Text("Don't have an account? ")
-                    .font(.body)
-                    .fontWeight(.light)
+                    .font(.system(size: 16.0, weight: .light))
                     
                 NavigationLink(destination: SignupWithPasswordView()) {
                     Text("Sign up")
-                        .font(.body)
-                        .fontWeight(.semibold)
+                        .font(.system(size: 16.0, weight: .semibold))
                         .foregroundColor(primaryColor)
                 }
                 
             }.frame(maxWidth: .infinity, alignment: .center)
            
+            Spacer()
             
         }.padding(.horizontal)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                presentationMode.wrappedValue.dismiss()
-                            }) {
-                                Image(systemName: "chevron.left")
-                                    .foregroundColor(.black)
-                            }
-                        }
-                    }
     }
 }
+
+struct SocialLoginButtonStyle: ButtonStyle {
+    
+    @Environment(\.colorScheme) var colorScheme
+    
+    var textColor: Color {
+        colorScheme == .dark ? Color.white : primaryColor
+    }
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+             .padding()
+             .frame(maxWidth: .infinity, maxHeight: 50.0)
+             .background(Color.clear)
+             .overlay(
+                 RoundedRectangle(cornerRadius: 50)
+                     .stroke(Color.gray, lineWidth: 1) // Enhanced border color and increased width
+             )
+             .cornerRadius(50)
+             .shadow(color: .black.opacity(0.2), radius: configuration.isPressed ? 2 : 5, x: 0, y: configuration.isPressed ? 1 : 3)
+             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
