@@ -109,17 +109,24 @@ struct SocialLoginButtonStyle: ButtonStyle {
         colorScheme == .dark ? Color.white : primaryColor
     }
     
+    var borderColor: Color {
+        colorScheme == .dark ? darkThemeBorderButtonColor : lightThemeBorderButtonColor
+    }
+    
+    var bgColor: Color {
+        colorScheme == .dark ? darkThemeSocialButtonColor : lightThemeSocialButtonColor
+    }
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
              .padding()
-             .frame(maxWidth: .infinity, maxHeight: 50.0)
-             .background(Color.clear)
+             .frame(maxWidth: .infinity)
+             .background(bgColor)
              .overlay(
                  RoundedRectangle(cornerRadius: 50)
-                     .stroke(Color.gray, lineWidth: 1) // Enhanced border color and increased width
+                     .stroke(borderColor, lineWidth: 1) // Enhanced border color and increased width
              )
              .cornerRadius(50)
-             .shadow(color: .black.opacity(0.2), radius: configuration.isPressed ? 2 : 5, x: 0, y: configuration.isPressed ? 1 : 3)
              .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }
 }
