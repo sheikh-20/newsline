@@ -13,7 +13,7 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 
                 trendingSection()
                 
@@ -60,7 +60,10 @@ struct HomeView: View {
                         }
                     }
                 }
-            }.onAppear { homeViewModel.fetchImages() }
+            }.onAppear {
+                homeViewModel.fetchImages()
+                homeViewModel.fetchRecentStoriesTab()
+            }
         }
     }
     
@@ -86,32 +89,86 @@ struct HomeView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(homeViewModel.images) { image in
+                    ForEach(homeViewModel.newsArcticle) { newsArticle in
                         
-                        AsyncImage(url: image.url) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                                    .frame(width: 250, height: 150)
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 250, height: 150)
-                                    .cornerRadius(8)
-                            case .failure:
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 250, height: 150)
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(8)
-                            @unknown default: EmptyView()
+                        VStack(spacing: 8) {
+                            AsyncImage(url: newsArticle.url) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView()
+                                        .frame(width: 250, height: 150)
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 250, height: 150)
+                                        .cornerRadius(8)
+                                case .failure:
+                                    Image(systemName: "photo")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 250, height: 150)
+                                        .background(Color.gray.opacity(0.2))
+                                        .cornerRadius(8)
+                                @unknown default: EmptyView()
+                                }
                             }
-                        }
+                            
+                            Text(newsArticle.title).font(.title3).fontWeight(.semibold).frame(alignment: .leading).lineLimit(3)
+                            
+                            HStack {
+                                Text(newsArticle.channelName).font(.caption).fontWeight(.semibold).frame(alignment: .leading)
+                                
+                                Spacer()
+                            }
+                            
+                            HStack {
+                                Text("3 days ago").font(.caption2).fontWeight(.semibold).frame(alignment: .leading)
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    Image(systemName: "eye")
+                                               .font(.system(size: 14))
+                                               .foregroundColor(.blue)
+                                    
+                                    Text("\(newsArticle.userRead)").font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .frame(alignment: .leading)
+                                    
+                                }
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    
+                                    Image(systemName: "message")
+                                               .font(.system(size: 14))
+                                               .foregroundColor(.blue)
+                                    
+                                    Text("\(newsArticle.userComment)").font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .frame(alignment: .leading)
+                                    
+                                }
+                                
+                                Spacer()
+                                
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.blue)
+                                            
+                                           
+                                Image(systemName: "ellipsis.vertical")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray)
+                                
+                            }.frame(width: .infinity, alignment: .leading)
+                            
+                        }.frame(width: 250, alignment: .leading)
                     }
                 }
-                .padding(.horizontal)
+                .padding([.leading, .trailing, .top])
             }
         }
     }
@@ -133,42 +190,137 @@ struct HomeView: View {
                         }
                     }
                 )
-            }.padding([.leading, .trailing, .top], 16)
-            
+            }.padding([.leading, .trailing, .top])
+         
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(homeViewModel.images) { image in
-                        
-                        AsyncImage(url: image.url) { phase in
-                            switch phase {
-                            case .empty:
-                                ProgressView()
-                                    .frame(width: 250, height: 150)
-                            case .success(let image):
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 250, height: 150)
-                                    .cornerRadius(8)
-                            case .failure:
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 250, height: 150)
-                                    .background(Color.gray.opacity(0.2))
-                                    .cornerRadius(8)
-                            @unknown default: EmptyView()
-                            }
-                        }
+                    ForEach(homeViewModel.recentStoriesTab) { recentStoryTab in
+                        ChipView(label: recentStoryTab.text)
                     }
                 }
                 .padding(.horizontal)
             }
+            
+            ScrollView(.vertical, showsIndicators: false) {
+               VStack(spacing: 16) {
+                    ForEach(homeViewModel.newsArcticle) { newsArticle in
+                        
+                        VStack(spacing: 8) {
+                        
+                            HStack {
+                                
+                                VStack {
+                                    Text(newsArticle.title).font(.title3).fontWeight(.semibold).frame(alignment: .leading).lineLimit(3)
+                                    
+                                    HStack {
+                                        Text(newsArticle.channelName).font(.caption).fontWeight(.semibold).frame(alignment: .leading)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                }
+                                AsyncImage(url: newsArticle.url) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                            .frame(width: 130, height: 100)
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 130, height: 100)
+                                            .cornerRadius(8)
+                                    case .failure:
+                                        Image(systemName: "photo")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 130, height: 100)
+                                            .background(Color.gray.opacity(0.2))
+                                            .cornerRadius(8)
+                                    @unknown default: EmptyView()
+                                    }
+                                }
+                            }.frame(width: .infinity)
+                            
+                            HStack(spacing: 16) {
+                                Text("3 days ago").font(.caption2).fontWeight(.semibold).frame(alignment: .leading)
+                            
+                                HStack {
+                                    Image(systemName: "eye")
+                                               .font(.system(size: 14))
+                                               .foregroundColor(.blue)
+                                    
+                                    Text("\(newsArticle.userRead)").font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .frame(alignment: .leading)
+                                    
+                                }
+                             
+                                HStack {
+                                    
+                                    Image(systemName: "message")
+                                               .font(.system(size: 14))
+                                               .foregroundColor(.blue)
+                                    
+                                    Text("\(newsArticle.userComment)").font(.caption2)
+                                        .fontWeight(.semibold)
+                                        .frame(alignment: .leading)
+                                    
+                                }
+                                
+                                Spacer()
+                                
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.blue)
+                                            
+                                           
+                                Image(systemName: "ellipsis.vertical")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray)
+                                
+                            }.frame(width: .infinity, alignment: .leading)
+                            
+                        }.frame(width: .infinity, alignment: .leading)
+                    }
+                }
+                .padding([.leading, .trailing, .top])
+            }.frame(width: .infinity)
         }
     }
     
     func openNotificationView() {
         
+    }
+}
+
+struct ChipView: View {
+    var label: String
+    @State private var isSelected: Bool = false
+    
+    var body: some View {
+        Button(action: {
+            isSelected.toggle()
+        }) {
+            HStack {
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .foregroundColor(.white)
+                }
+                Text(label)
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(isSelected ? Color.blue : Color.gray.opacity(0.3))
+            .cornerRadius(20)
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(isSelected ? Color.blue : Color.gray, lineWidth: 1)
+            )
+        }
+        .buttonStyle(PlainButtonStyle()) // Retain the custom appearance
     }
 }
 

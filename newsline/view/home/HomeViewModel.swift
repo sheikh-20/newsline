@@ -9,22 +9,58 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     
-    @Published var images: [ImageModel] = []
+    @Published var newsArcticle: [NewsArticle] = []
+    @Published var recentStoriesTab: [RecentStoryTab] = []
     
     func fetchImages() {
            // Example URLs
-           let imageUrls = [
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631300305227E03_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631290503689E01_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631290305226E03_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631280503688E0B_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631280305225E03_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631270503687E03_DXXX.jpg",
-               "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000ML0044631270305224E03_DXXX.jpg"
+           let newsArticles = [
+               NewsArticle(
+                url: URL(string: "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg"),
+                title: "Revoltionizing the Future: Breakthrough Technology Set to Transform Industries",
+                channelName: "Jane Cooper",
+                publishedDate: 1725810416079,
+                userRead: 378,
+                userComment: 2),
+               
+               NewsArticle(
+                url: URL(string: "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg"),
+                title: "Economic Boom on the Horizon: Experts Predict Record Growth in Key Sectors",
+                channelName: "NBC News",
+                publishedDate: 1725810416079,
+                userRead: 852,
+                userComment: 3),
+               
+               NewsArticle(
+                url: URL(string: "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg"),
+                title: "Breathrough Discovery: Promising Treatment Shows Potential in Cancer Battle",
+                channelName: "Brooklyn Simmons",
+                publishedDate: 1725810416079,
+                userRead: 1200,
+                userComment: 5),
+               
+               NewsArticle(
+                url: URL(string: "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg"),
+                title: "Revoltionizing the Future: Breakthrough Technology Set to Transform Industries",
+                channelName: "Jane Cooper",
+                publishedDate: 1725810416079,
+                userRead: 378,
+                userComment: 2),
+               
+               NewsArticle(
+                url: URL(string: "https://mars.jpl.nasa.gov/msl-raw-images/msss/01000/mcam/1000MR0044631300503690E01_DXXX.jpg"),
+                title: "Innovation Unleashed: Groundbreaking Tech Unveiled at Global Summit",
+                channelName: "BBC News",
+                publishedDate: 1725810416079,
+                userRead: 1300,
+                userComment: 2),
            ]
            
            // Map strings to URL
-           self.images = imageUrls.compactMap { URL(string: $0) }.map { ImageModel(url: $0) }
+           self.newsArcticle = newsArticles
        }
+    
+    func fetchRecentStoriesTab() {
+        self.recentStoriesTab = ["All", "Politics", "Technology", "Business", "Science"].map { RecentStoryTab(text: $0) }
+    }
 }
