@@ -55,7 +55,7 @@ struct CompleteView: View {
                     action: { },
                     label: {
                         NavigationLink(destination: HomeApp()) {
-                            Text("Le's Go").fontWeight(.semibold)
+                            Text("Let's Go").fontWeight(.semibold)
                         }
                     })
                     .buttonStyle(ElevatedButtonStyle())
