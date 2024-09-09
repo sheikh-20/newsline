@@ -11,6 +11,8 @@ class HomeViewModel: ObservableObject {
     
     @Published var newsArcticle: [NewsArticle] = []
     @Published var recentStoriesTab: [RecentStoryTab] = []
+    @Published var popularPublishers: [PublishersModel] = []
+    @Published var popularAuthors: [AuthorsModel] = []
     
     func fetchImages() {
            // Example URLs
@@ -62,5 +64,24 @@ class HomeViewModel: ObservableObject {
     
     func fetchRecentStoriesTab() {
         self.recentStoriesTab = ["All", "Politics", "Technology", "Business", "Science"].map { RecentStoryTab(text: $0) }
+    }
+    
+    func fetchPopularPublishers() {
+        self.popularPublishers = [PublishersModel(title: "CNN News"),
+                                    PublishersModel(title: "The New York Times"),
+                                    PublishersModel(title: "BBC News"),
+                                    PublishersModel(title: "USA Today"),
+                                    PublishersModel(title: "NBC News"),
+                                    PublishersModel(title: "ABC News")]
+    }
+    
+    func fetchPopularAuthors() {
+        self.popularAuthors = [
+            AuthorsModel(name: "Jenny W."),
+            AuthorsModel(name: "Edgar T."),
+            AuthorsModel(name: "Krishna B."),
+            AuthorsModel(name: "Clinton M."),
+            AuthorsModel(name: "Sheikh M."),
+        ]
     }
 }
