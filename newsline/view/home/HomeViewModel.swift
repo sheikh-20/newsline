@@ -66,6 +66,10 @@ class HomeViewModel: ObservableObject {
         self.recentStoriesTab = ["All", "Politics", "Technology", "Business", "Science"].map { RecentStoryTab(text: $0) }
     }
     
+    func fetchBookmarkTab() {
+        self.recentStoriesTab = ["+", "Reading List", "References", "Research", "Saved Stories"].map { RecentStoryTab(text: $0) }
+    }
+    
     func fetchPopularPublishers() {
         self.popularPublishers = [PublishersModel(title: "CNN News"),
                                     PublishersModel(title: "The New York Times"),
