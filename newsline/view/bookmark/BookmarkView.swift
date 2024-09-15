@@ -20,6 +20,7 @@ struct BookmarkView: View {
                        
                        Spacer()
                    }
+                   .navigationBarTitleDisplayMode(.inline)
                    .navigationBarBackButtonHidden(true)
                    .toolbar {
                        ToolbarItem(placement: .principal) {
