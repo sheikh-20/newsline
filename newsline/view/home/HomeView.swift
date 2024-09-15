@@ -22,6 +22,7 @@ struct HomeView: View {
                 Spacer()
                 
                    }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
              
