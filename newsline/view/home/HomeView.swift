@@ -49,16 +49,13 @@ struct HomeView: View {
                     Button(action: {
                         // Action for trailing button
                     }) {
-                        if let shareImage = UIImage(named: "notifications") {
+                       
                             NavigationLink(destination: { NotificationView() }) {
-                                Image(uiImage: shareImage)
-                                    .resizable() // Make it resizable if needed
-                                    .scaledToFit() //
-                                    .imageScale(.large)
-                                    .symbolVariant(.circle)
-                                    .frame(width: 20, height: 20)
+                                Image(systemName: "bell.circle.fill")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 34, height: 34)
                             }
-                        }
                     }
                 }
             }.onAppear {
@@ -77,15 +74,17 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button(
-                    action: { },
-                    label: {
+                Button(action: {
+                    // Add action here if needed
+                }) {
+                    NavigationLink(destination: TrendingView()) {
                         HStack {
                             Text("View All")
                             Image(systemName: "chevron.right")
                         }
                     }
-                )
+                }
+
             }.padding([.leading, .trailing, .top], 16)
             
             ScrollView(.horizontal, showsIndicators: false) {
@@ -182,15 +181,16 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Button(
-                    action: { },
-                    label: {
+                Button(action: {
+                    // Add action here if needed
+                }) {
+                    NavigationLink(destination: RecentStoriesView()) {
                         HStack {
                             Text("View All")
                             Image(systemName: "chevron.right")
                         }
                     }
-                )
+                }
             }.padding([.leading, .trailing, .top])
          
             ScrollView(.horizontal, showsIndicators: false) {
