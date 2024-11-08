@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -126,6 +126,10 @@
 		48F2DF822CA3F8BA0034E656 /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		48456B052CDE24EE00198557 /* detail */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = detail; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		4846AD262C40F689002F8495 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -163,6 +167,7 @@
 		482C525F2C42552F001ED9A9 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				48456B052CDE24EE00198557 /* detail */,
 				4854EB1C2C4D68DC00748EF3 /* theme */,
 				487339F72C47C46500250B86 /* utility */,
 				487339F42C47C06300250B86 /* splash */,
@@ -422,6 +427,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				48456B052CDE24EE00198557 /* detail */,
 			);
 			name = newsline;
 			productName = newsline;
