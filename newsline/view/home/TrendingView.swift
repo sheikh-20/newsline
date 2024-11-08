@@ -38,7 +38,7 @@ struct TrendingView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    // Action for trailing button
+                   
                 }) {
                     Image(systemName: "magnifyingglass")
                 }
